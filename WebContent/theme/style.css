@@ -1,0 +1,112 @@
+* {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: white;	
+	color: rgb(51, 102, 102);
+}
+
+#page {
+	width: 750px;
+	margin-left: 20px;
+	margin-right: auto;
+}
+
+header {
+	border-bottom: solid;
+	height: 57px;
+}
+
+h2 {
+	font-size: 14px;
+	text-transform: capitalize;
+	padding-left: 10px;
+}
+
+article {
+	border: 1px dotted;
+}
+
+article h2, nav a:hover {
+	color: white;
+	background-color: rgb(51, 102, 102);
+}
+
+article p, li {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+nav {
+	float: right;
+	border-style: solid;
+	border-width: 1px;
+	width: 200px;
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+nav ul {
+	margin: 0px;
+	list-style-type: none;
+	padding: 10px;
+}
+
+nav li {
+	padding: 0px; 
+}
+
+nav a {
+	font-size: 14px;
+}
+
+nav form {
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;	
+}
+
+#contenu {
+	margin-top: 20px;
+	width: 500px;
+	text-align: justify;
+	min-height: 150px;
+}
+
+form.connexion {
+	padding-bottom: 40px;
+}
+
+form.connexion label {
+	float: left;
+	min-width: 150px;
+	text-align: left;
+	font-weight: bold;
+	}
+
+.champtexte {
+	border-style: solid;
+} 
+
+form.connexion > .bloc_identifiant, form.connexion > .bloc_motdepasse {
+	padding-bottom: 5px;
+}
+	
+#seconnecter {
+	margin-left: 100px;
+}
+	
+footer {
+	width: 750px;
+	text-align: center;
+	font-size: 10px;
+	margin-top: 20px;
+	padding-top: 10px;
+	border-top: 1px dashed;
+}
+
+footer a {
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
