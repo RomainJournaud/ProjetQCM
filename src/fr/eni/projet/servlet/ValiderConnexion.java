@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 import fr.eni.projet.bean.*;
 import fr.eni.projet.dal.*;
 
-public class ValiderAccesAnimateur extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
+public class ValiderConnexion extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
 	static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,27 +24,27 @@ public class ValiderAccesAnimateur extends javax.servlet.http.HttpServlet implem
 	protected void valider(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher;
-		Animateur animateurConnecte = null;
+		User userConnecte = null;
 
 		// Si l'animateur est déjà connecté, on redirige vers le menu animateur
-		animateurConnecte = (Animateur)request.getSession().getAttribute("animateurConnecte");
-		if (animateurConnecte!=null) {
-			redirectionMenuAnimateur(request, response);
+		userConnecte = (User)request.getSession().getAttribute("userConnecte");
+		if (userConnecte!=null) {
+			redirectionMenuUser(request, response);
 			return;
 		}		
 		
 		// Récupération des informations saisies dans le formulaire
-		String mail = request.getParameter("identifiant");
-		String motdepasse = request.getParameter("motdepasse");
+		String identifiant = request.getParameter("identifiant");
+		String motdepasse = request.getParameter("mdp");
 
 		// Controle des informations :
 		// si tous les champs ne sont pas renseignés, revenir sur la page du formulaire
-		if (   (mail == null) || (mail.length() == 0) 
+		if (   (identifiant == null) || (identifiant.length() == 0) 
 			|| (motdepasse == null) || (motdepasse.length() == 0)) {
 			
 			String message = "Les champs Identifiant et Mot de passe sont obligatoires";
 			request.setAttribute("messageErreur", message);
-			dispatcher = getServletContext().getNamedDispatcher("AccesAnimateurPage");
+			dispatcher = getServletContext().getNamedDispatcher("AccesUserPage");
 			dispatcher.forward(request, response);
 			return;
 		}
@@ -52,7 +52,7 @@ public class ValiderAccesAnimateur extends javax.servlet.http.HttpServlet implem
 
 		try {
 			// Valider l'identification par rapport aux informations de la base
-			animateurConnecte = AnimateurDAO.rechercher(new Animateur(-1, null, null, motdepasse, mail));
+			userConnecte = UserDAO.rechercher(new User(-1, null, null, null, identifiant, motdepasse, 0));
 		} catch (SQLException sqle) {
 			// Placer l'objet représentant l'exception dans le contexte de requete
 			request.setAttribute("erreur", sqle);
@@ -63,11 +63,11 @@ public class ValiderAccesAnimateur extends javax.servlet.http.HttpServlet implem
 		}		
 			
 		// Si l'authenification est réussie...
-		if (animateurConnecte != null) {
+		if (userConnecte != null) {
 			// Placer le bean dans le contexte de session
-			request.getSession().setAttribute("animateurConnecte", animateurConnecte);
+			request.getSession().setAttribute("userConnecte", userConnecte);
 			// Présenter la réponse
-			redirectionMenuAnimateur(request, response);
+			redirectionMenuUser(request, response);
 			return;
 		}
 		// ...sinon
@@ -75,19 +75,19 @@ public class ValiderAccesAnimateur extends javax.servlet.http.HttpServlet implem
 			// Retourner à l'écran d'identification avec un message d'erreur fonctionnel			
 			String message = "Identifiant ou mot de passe incorrect";
 			request.setAttribute("messageErreur", message);
-			dispatcher = getServletContext().getNamedDispatcher("AccesAnimateurPage");
+			dispatcher = getServletContext().getNamedDispatcher("AccesUserPage");
 			dispatcher.forward(request, response);
 			}
 	}
 	
-	protected void redirectionMenuAnimateur(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void redirectionMenuUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// En fonction de la méthode de redirection utilisée (forward ou sendRedirect()),
 		// l'utilisateur pourra voir ou non l'URL de la ressource : 
 		
 		// L'utilisation d'un forward masque la nouvelle ressource demandée (car tout 
 		// se passe au sein du serveur d'application) 
-		RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeURL("/animateur/menu.jsp"));
+		RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeURL("/user/index.jsp"));
 		dispatcher.forward(request, response);
 		
 		// L'utilisation d'un sendRedirect expose le nom de la page à l'utilisateur (car

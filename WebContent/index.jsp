@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title>TP Web - Acces Animateur</title>
+  <title>Connexion</title>
   <link media="all" rel="stylesheet" href="<%=request.getContextPath()%>/theme/style.css" type="text/css"/>
 </head>
 <body>
@@ -18,22 +18,22 @@
 	<div id="contenu">
 	
 	<jsp:scriptlet> 
-		String animateurId = request.getParameter("identifiant");
-		if (animateurId==null) animateurId="";
-		String animateurMdP = request.getParameter("motdepasse");
-		if (animateurMdP==null) animateurMdP="";
+		String utilisateurId = request.getParameter("identifiant");
+		if (utilisateurId==null) utilisateurId="";
+		String utilisateurMdP = request.getParameter("motdepasse");
+		if (utilisateurMdP==null) utilisateurMdP="";
 		String messageErreur = (String)request.getAttribute("messageErreur");
 		if (messageErreur==null) messageErreur="";
 	</jsp:scriptlet>
 	
-		<form class="connexion" action="<%= response.encodeURL(request.getContextPath()+"/animateur/ValiderAccesAnimateur")%>" method="post">
+		<form class="connexion" action="<%= response.encodeURL(request.getContextPath()+"/ValiderConnexion")%>" method="post">
 		<div class="bloc_identifiant">
 			<label for="identifiant">Identifiant</label>
-			<input class="champtexte" type="text" id="identifiant" name="identifiant" value="<%=animateurId%>"/>
+			<input class="champtexte" type="text" id="identifiant" name="identifiant" value="<%=utilisateurId%>"/>
 		</div>
 		<div class="bloc_motdepasse">
 			<label for="motdepasse">Mot de passe</label>
-			<input class="champtexte" type="text"  id="motdepasse" name="motdepasse" value="<%=animateurMdP%>"/>
+			<input class="champtexte" type="text"  id="motdepasse" name="motdepasse" value="<%=utilisateurMdP%>"/>
 		</div>
 		<div class="bloc_connexion">
 			<input type="submit" id="seconnecter" value="Se connecter" />
