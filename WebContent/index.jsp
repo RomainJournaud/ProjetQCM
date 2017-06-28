@@ -20,7 +20,7 @@
 	<jsp:scriptlet> 
 		String utilisateurId = request.getParameter("identifiant");
 		if (utilisateurId==null) utilisateurId="";
-		String utilisateurMdP = request.getParameter("motdepasse");
+		String utilisateurMdP = request.getParameter("mdp");
 		if (utilisateurMdP==null) utilisateurMdP="";
 		String messageErreur = (String)request.getAttribute("messageErreur");
 		if (messageErreur==null) messageErreur="";
@@ -31,9 +31,9 @@
 			<label for="identifiant">Identifiant</label>
 			<input class="champtexte" type="text" id="identifiant" name="identifiant" value="<%=utilisateurId%>"/>
 		</div>
-		<div class="bloc_motdepasse">
-			<label for="motdepasse">Mot de passe</label>
-			<input class="champtexte" type="text"  id="motdepasse" name="motdepasse" value="<%=utilisateurMdP%>"/>
+		<div class="bloc_mdp">
+			<label for="mdp">Mot de passe</label>
+			<input class="champtexte" type="text"  id="mdp" name="mdp" value="<%=utilisateurMdP%>"/>
 		</div>
 		<div class="bloc_connexion">
 			<input type="submit" id="seconnecter" value="Se connecter" />
