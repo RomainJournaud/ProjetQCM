@@ -1,13 +1,15 @@
 package fr.eni.projet.servlet;
 
-import java.io.*;
-import java.sql.*;
+import java.io.IOException;
+import java.sql.SQLException;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.projet.bean.*;
-import fr.eni.projet.dal.*;
+import fr.eni.projet.bean.User;
+import fr.eni.projet.dal.UserDAO;
 
 public class ValiderConnexion extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
 	static final long serialVersionUID = 1L;
@@ -87,7 +89,7 @@ public class ValiderConnexion extends javax.servlet.http.HttpServlet implements 
 		
 		// L'utilisation d'un forward masque la nouvelle ressource demandée (car tout 
 		// se passe au sein du serveur d'application) 
-		RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeURL("/user/index.jsp"));
+		RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeURL("/user/menu.jsp"));
 		dispatcher.forward(request, response);
 		
 		// L'utilisation d'un sendRedirect expose le nom de la page à l'utilisateur (car

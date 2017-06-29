@@ -1,9 +1,8 @@
-<jsp:directive.page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"/>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<jsp:directive.page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
+<!DOCTYPE html>
+<html>
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"/>
+  <meta charset="UTF-8"/>
   <title>Erreur</title>
   <link media="all" rel="stylesheet" href="<%=request.getContextPath()%>/theme/basique/style.css" type="text/css"/>
 </head>

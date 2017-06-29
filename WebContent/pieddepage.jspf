@@ -1,0 +1,1 @@
+<footer><a href="<%= response.encodeURL(request.getContextPath()+"/deconnexion") %>">Deconnexion</a></footer>
