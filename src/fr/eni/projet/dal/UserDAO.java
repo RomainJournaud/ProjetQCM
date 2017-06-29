@@ -10,7 +10,7 @@ import fr.eni.projet.util.AccesBase;
 
 public class UserDAO {
 
-	private static final String SELECT_SINGLE_BY_EMAIL_AND_PASSWORD = "select id, nom, prenom from utilisateur where email=? and motdepasse=?";
+	private static final String SELECT_SINGLE_BY_EMAIL_AND_PASSWORD = "select id, nom, prenom from utilisateur where identifiant=? and mdp=?";
 private static final String SQL_SELECT_BY_ID = "select * from utilisateur where id=?";
 	
 	/*
