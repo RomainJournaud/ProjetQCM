@@ -10,8 +10,8 @@ import fr.eni.projet.util.AccesBase;
 
 public class UserDAO {
 
-	private static final String SELECT_SINGLE_BY_EMAIL_AND_PASSWORD = "select id, nom, prenom from animateurs where email=? and motdepasse=?";
-private static final String SQL_SELECT_BY_ID = "select * from animateurs where id=?";
+	private static final String SELECT_SINGLE_BY_EMAIL_AND_PASSWORD = "select id, nom, prenom from utilisateur where email=? and motdepasse=?";
+private static final String SQL_SELECT_BY_ID = "select * from utilisateur where id=?";
 	
 	/*
 	 * Recherche par Id
@@ -29,8 +29,8 @@ private static final String SQL_SELECT_BY_ID = "select * from animateurs where i
 			if (rs.next()){
 				user.setNom(rs.getString("nom"));
 				user.setPrenom(rs.getString("prenom"));
-				user.setEmail(rs.getString("email"));
-				user.setMotDePasse(rs.getString("motdepasse"));
+				user.setIdentifiant(rs.getString("identifiant"));
+				user.setMdp(rs.getString("mdp"));
 			}
 			// ...sinon renvoyer null
 			else {
@@ -52,8 +52,8 @@ private static final String SQL_SELECT_BY_ID = "select * from animateurs where i
 		try{
 			cnx = AccesBase.getConnection();
 			rqt = cnx.prepareStatement(SELECT_SINGLE_BY_EMAIL_AND_PASSWORD);
-			rqt.setString(1, user.getEmail());
-			rqt.setString(2, user.getMotDePasse());
+			rqt.setString(1, user.getIdentifiant());
+			rqt.setString(2, user.getMdp());
 			rs=rqt.executeQuery();
 			// Si on trouve au moins 1 résultat, on prend le 1er pour mettre à jour les informations de l'animateur utilisé pour la recherche.
 			if (rs.next()){

@@ -26,21 +26,12 @@ public class ValiderConnexion extends javax.servlet.http.HttpServlet implements 
 	protected void valider(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher;
-<<<<<<< HEAD:src/fr/eni/projet/servlet/ValiderAccesAnimateur.java
-		User animateurConnecte = null;
-
-		// Si l'animateur est déjà connecté, on redirige vers le menu animateur
-		animateurConnecte = (User)request.getSession().getAttribute("animateurConnecte");
-		if (animateurConnecte!=null) {
-			redirectionMenuAnimateur(request, response);
-=======
 		User userConnecte = null;
 
 		// Si l'animateur est déjà connecté, on redirige vers le menu animateur
 		userConnecte = (User)request.getSession().getAttribute("userConnecte");
 		if (userConnecte!=null) {
 			redirectionMenuUser(request, response);
->>>>>>> master:src/fr/eni/projet/servlet/ValiderConnexion.java
 			return;
 		}		
 		
@@ -63,11 +54,7 @@ public class ValiderConnexion extends javax.servlet.http.HttpServlet implements 
 
 		try {
 			// Valider l'identification par rapport aux informations de la base
-<<<<<<< HEAD:src/fr/eni/projet/servlet/ValiderAccesAnimateur.java
-			animateurConnecte = UserDAO.rechercher(new User(-1, null, null, motdepasse, mail));
-=======
 			userConnecte = UserDAO.rechercher(new User(-1, null, null, null, identifiant, motdepasse, 0));
->>>>>>> master:src/fr/eni/projet/servlet/ValiderConnexion.java
 		} catch (SQLException sqle) {
 			// Placer l'objet représentant l'exception dans le contexte de requete
 			request.setAttribute("erreur", sqle);

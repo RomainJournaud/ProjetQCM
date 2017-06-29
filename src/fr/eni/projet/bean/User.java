@@ -9,52 +9,81 @@ public class User implements Serializable {
 	private int id;
 	private String nom;
 	private String prenom;
-	private String motDePasse;
-	private String email;
+	private String mail;
+	private String identifiant;
+	private String mdp;
+	private int admin;
 
-	public User(){
+	public User() {
 		super();
 	}
-	
-	public User(int id, String nom, String prenom, String motDePasse, String email){
-		this();
-		setId(id);
-		setNom(nom);
-		setPrenom(prenom);
-		setMotDePasse(motDePasse);
-		setEmail(email);		
+
+	public User(int id, String nom, String prenom, String mail,
+			String identifiant, String mdp, int admin) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.mail = mail;
+		this.identifiant = identifiant;
+		this.mdp = mdp;
+		this.admin = admin;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getPrenom() {
 		return prenom;
 	}
-	public void setPrenom(String premnom) {
-		this.prenom = premnom;
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
-	public String getMotDePasse() {
-		return motDePasse;
+
+	public String getMail() {
+		return mail;
 	}
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getIdentifiant() {
+		return identifiant;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setIdentifiant(String identifiant) {
+		this.identifiant = identifiant;
+	}
+
+	public String getMdp() {
+		return mdp;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
+	public int getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(int admin) {
+		this.admin = admin;
 	}
 
 }
