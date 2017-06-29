@@ -24,10 +24,10 @@ public class ValiderAccesAnimateur extends javax.servlet.http.HttpServlet implem
 	protected void valider(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher;
-		Animateur animateurConnecte = null;
+		User animateurConnecte = null;
 
 		// Si l'animateur est déjà connecté, on redirige vers le menu animateur
-		animateurConnecte = (Animateur)request.getSession().getAttribute("animateurConnecte");
+		animateurConnecte = (User)request.getSession().getAttribute("animateurConnecte");
 		if (animateurConnecte!=null) {
 			redirectionMenuAnimateur(request, response);
 			return;
@@ -52,7 +52,7 @@ public class ValiderAccesAnimateur extends javax.servlet.http.HttpServlet implem
 
 		try {
 			// Valider l'identification par rapport aux informations de la base
-			animateurConnecte = AnimateurDAO.rechercher(new Animateur(-1, null, null, motdepasse, mail));
+			animateurConnecte = UserDAO.rechercher(new User(-1, null, null, motdepasse, mail));
 		} catch (SQLException sqle) {
 			// Placer l'objet représentant l'exception dans le contexte de requete
 			request.setAttribute("erreur", sqle);

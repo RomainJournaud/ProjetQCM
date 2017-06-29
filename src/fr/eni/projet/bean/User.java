@@ -2,7 +2,7 @@ package fr.eni.projet.bean;
 
 import java.io.*;
 
-public class Animateur implements Serializable {
+public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -12,11 +12,11 @@ public class Animateur implements Serializable {
 	private String motDePasse;
 	private String email;
 
-	public Animateur(){
+	public User(){
 		super();
 	}
 	
-	public Animateur(int id, String nom, String prenom, String motDePasse, String email){
+	public User(int id, String nom, String prenom, String motDePasse, String email){
 		this();
 		setId(id);
 		setNom(nom);

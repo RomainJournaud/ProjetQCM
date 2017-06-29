@@ -5,10 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fr.eni.projet.bean.Animateur;
+import fr.eni.projet.bean.User;
 import fr.eni.projet.util.AccesBase;
 
-public class AnimateurDAO {
+public class UserDAO {
 
 	private static final String SELECT_SINGLE_BY_EMAIL_AND_PASSWORD = "select id, nom, prenom from animateurs where email=? and motdepasse=?";
 private static final String SQL_SELECT_BY_ID = "select * from animateurs where id=?";
@@ -16,25 +16,25 @@ private static final String SQL_SELECT_BY_ID = "select * from animateurs where i
 	/*
 	 * Recherche par Id
 	 */
-	public static Animateur rechercherParId(Animateur animateur) throws SQLException{
+	public static User rechercherParId(User user) throws SQLException{
 		Connection cnx = null;
 		PreparedStatement rqt = null;
 		ResultSet rs = null;
 		try{
 			cnx = AccesBase.getConnection();
 			rqt = cnx.prepareStatement(SQL_SELECT_BY_ID);
-			rqt.setInt(1, animateur.getId());
+			rqt.setInt(1, user.getId());
 			rs=rqt.executeQuery();
 			// Si il y a au moins 1 résultat, prendre le 1er pour mettre à jour les informations du stagiaire utilisé pour la recherche.
 			if (rs.next()){
-				animateur.setNom(rs.getString("nom"));
-				animateur.setPrenom(rs.getString("prenom"));
-				animateur.setEmail(rs.getString("email"));
-				animateur.setMotDePasse(rs.getString("motdepasse"));
+				user.setNom(rs.getString("nom"));
+				user.setPrenom(rs.getString("prenom"));
+				user.setEmail(rs.getString("email"));
+				user.setMotDePasse(rs.getString("motdepasse"));
 			}
 			// ...sinon renvoyer null
 			else {
-				animateur = null;
+				user = null;
 			}
 			
 		}finally{
@@ -42,28 +42,28 @@ private static final String SQL_SELECT_BY_ID = "select * from animateurs where i
 			if (rqt!=null) rqt.close();
 			if (cnx!=null) cnx.close();
 		}
-		return animateur;
+		return user;
 	}
 	
-	public static Animateur rechercher(Animateur animateur) throws SQLException{
+	public static User rechercher(User user) throws SQLException{
 		Connection cnx = null;
 		PreparedStatement rqt = null;
 		ResultSet rs = null;
 		try{
 			cnx = AccesBase.getConnection();
 			rqt = cnx.prepareStatement(SELECT_SINGLE_BY_EMAIL_AND_PASSWORD);
-			rqt.setString(1, animateur.getEmail());
-			rqt.setString(2, animateur.getMotDePasse());
+			rqt.setString(1, user.getEmail());
+			rqt.setString(2, user.getMotDePasse());
 			rs=rqt.executeQuery();
 			// Si on trouve au moins 1 résultat, on prend le 1er pour mettre à jour les informations de l'animateur utilisé pour la recherche.
 			if (rs.next()){
-				animateur.setId(rs.getInt("id"));
-				animateur.setNom(rs.getString("nom"));
-				animateur.setPrenom(rs.getString("prenom"));
+				user.setId(rs.getInt("id"));
+				user.setNom(rs.getString("nom"));
+				user.setPrenom(rs.getString("prenom"));
 			}
 			// ...sinon on renvoie null
 			else {
-				animateur = null;
+				user = null;
 			}
 			
 		}finally{
@@ -71,7 +71,7 @@ private static final String SQL_SELECT_BY_ID = "select * from animateurs where i
 			if (rqt!=null) rqt.close();
 			if (cnx!=null) cnx.close();
 		}
-		return animateur;
+		return user;
 	}
 
 }
