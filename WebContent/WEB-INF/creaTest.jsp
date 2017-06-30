@@ -16,21 +16,22 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+<script src="js/creaTest.js"></script>
 </head>
 <body>
 
 <form method="POST" id="formCreTest" data-nbquest="0">
 	<div class="form-group">
-	  <label for="nom">Nom du test:</label>
+	  <label for="nomTest">Nom du test:</label>
 	  <input type="text" class="form-control" id="nomTest" name="nom">
 	</div>
 	<div class="form-group">
-	  <label for="duree">Durée du test:</label>
+	  <label for="dureeTest">Durée du test:</label>
 	  <input type="time" class="form-control" id="dureeTest" name="duree">
 	</div>
 	<div class="form-group">
-	  <label for="duree">Seuil de réussite du test:</label>
-	  <input type="number" class="form-control" id="dureeTest" name="duree">%
+	  <label for="seuilTest">Seuil de réussite du test:</label>
+	  <input type="number" class="form-control" id="seuilTest" name="seuil">%
 	</div>
 	<button type="button" class="btn btn-primary btn-lg btn-block" id="ajoutQuestion">Ajouter une question</button>
 	<button type="submit" class="btn btn-primary">Valider le test</button>

@@ -29,6 +29,7 @@ private static final String SQL_SELECT_BY_ID = "select * from question where id=
 				question.setEnonce(rs.getString("enonce"));
 				question.setImage(rs.getString("image"));
 				question.setNbRep(rs.getInt("nb_reponse"));
+				question.setId_test(rs.getInt("id_test"));
 			}
 			// ...sinon renvoyer null
 			else {

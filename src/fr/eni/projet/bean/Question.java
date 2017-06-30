@@ -10,16 +10,18 @@ public class Question implements Serializable{
 	private String enonce;
 	private String image;
 	private int nbRep;
+	private int id_test;
 	
 	
 	public Question() {
 		super();
 	}
 
-	public Question(int id, String enonce, int nbRep) {
+	public Question(int id, String enonce, int nbRep, int id_test) {
 		this.id = id;
 		this.enonce = enonce;
 		this.nbRep = nbRep;
+		this.id_test=id_test;
 	}
 
 	public int getId() {
@@ -52,6 +54,14 @@ public class Question implements Serializable{
 
 	public void setNbRep(int nbRep) {
 		this.nbRep = nbRep;
+	}
+
+	public int getId_test() {
+		return id_test;
+	}
+
+	public void setId_test(int id_test) {
+		this.id_test = id_test;
 	}
 	
 	
