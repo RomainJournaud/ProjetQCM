@@ -23,7 +23,8 @@
 	</p>
 	</div>
 	
-	<div><a href="<%= response.encodeURL(request.getContextPath()+"/test") %>">Demarrer un nouveau test</a></div>
+	<div><a href="<%= response.encodeURL(request.getContextPath()+"/test") %>">Démarrer un nouveau test</a></div>
+	<div><a href="<%= response.encodeURL(request.getContextPath()+"/creaTest.jsp") %>">Créer un nouveau test</a></div>
 	
 	<jsp:directive.include file="/pieddepage.jspf" />	
 </div>

@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<jsp:directive.page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" />
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta charset="UTF-8"/>
 <title>Insert title here</title>
 
 <!-- Latest compiled and minified CSS -->
@@ -26,11 +25,11 @@
 	  <input type="text" class="form-control" id="nomTest" name="nom">
 	</div>
 	<div class="form-group">
-	  <label for="dureeTest">Durée du test:</label>
+	  <label for="dureeTest">DurÃ©e du test:</label>
 	  <input type="time" class="form-control" id="dureeTest" name="duree">
 	</div>
 	<div class="form-group">
-	  <label for="seuilTest">Seuil de réussite du test:</label>
+	  <label for="seuilTest">Seuil de rÃ©ussite du test:</label>
 	  <input type="number" class="form-control" id="seuilTest" name="seuil">%
 	</div>
 	<button type="button" class="btn btn-primary btn-lg btn-block" id="ajoutQuestion">Ajouter une question</button>
