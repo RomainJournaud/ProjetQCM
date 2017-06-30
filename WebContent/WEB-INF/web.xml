@@ -18,7 +18,7 @@
   </servlet>
     <servlet>
     <servlet-name>SelectionnerTest</servlet-name>
-    <servlet-class>fr.eni.projet.servlet.Deconnecter</servlet-class>
+    <servlet-class>fr.eni.projet.servlet.SelectionnerTest</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Deconnecter</servlet-name>

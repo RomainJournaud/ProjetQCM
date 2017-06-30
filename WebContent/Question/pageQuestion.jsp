@@ -14,7 +14,6 @@
 		</div>
 		<div id="contenu">
 			<jsp:useBean id="questionEnCours" class="fr.eni.projet.bean.Question" scope="session" />
-			<jsp:useBean id="Reponses" class="fr.eni.projet.bean.Reponse" scope="session" />
 			<jsp:getProperty property="enonce" name="questionEnCours"/>
 			<jsp:getProperty property="listeReponse" name="questionEnCours"/>
 			
