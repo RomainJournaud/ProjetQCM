@@ -1,6 +1,7 @@
 package fr.eni.projet.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Question implements Serializable{
 
@@ -10,16 +11,21 @@ public class Question implements Serializable{
 	private String enonce;
 	private String image;
 	private int nbRep;
+	private List<Reponse> listeReponse;
 	
 	
 	public Question() {
 		super();
 	}
 
-	public Question(int id, String enonce, int nbRep) {
+	public Question(int id, String enonce, String image, int nbRep,
+			List<Reponse> listeReponse) {
+		super();
 		this.id = id;
 		this.enonce = enonce;
+		this.image = image;
 		this.nbRep = nbRep;
+		this.listeReponse = listeReponse;
 	}
 
 	public int getId() {
@@ -52,6 +58,14 @@ public class Question implements Serializable{
 
 	public void setNbRep(int nbRep) {
 		this.nbRep = nbRep;
+	}
+
+	public List<Reponse> getListeReponse() {
+		return listeReponse;
+	}
+
+	public void setListeReponse(List<Reponse> listeReponse) {
+		this.listeReponse = listeReponse;
 	}
 	
 	

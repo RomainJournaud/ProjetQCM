@@ -1,6 +1,7 @@
 package fr.eni.projet.bean;
 
 import java.io.*;
+import java.util.List;
 
 public class Test implements Serializable {
 
@@ -10,20 +11,22 @@ public class Test implements Serializable {
 	private String nom;
 	private int duree;
 	private float seuilReussite;
+	private List<Question> listeQuestion;
 
 	public Test(){
 		super();
 	}
 	
 
-	public Test(int id, String nom, int duree, float seuilReussite) {
+	public Test(int id, String nom, int duree, float seuilReussite,
+			List<Question> listeQuestion) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.duree = duree;
 		this.seuilReussite = seuilReussite;
+		this.listeQuestion = listeQuestion;
 	}
-
 
 
 	public int getId() {
@@ -56,6 +59,16 @@ public class Test implements Serializable {
 
 	public void setSeuilReussite(float seuilReussite) {
 		this.seuilReussite = seuilReussite;
+	}
+
+
+	public List<Question> getListeQuestion() {
+		return listeQuestion;
+	}
+
+
+	public void setListeQuestion(List<Question> listeQuestion) {
+		this.listeQuestion = listeQuestion;
 	}
 	
 	
